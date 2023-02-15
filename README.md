@@ -12,3 +12,4 @@ MIT licence
 
 ## 参考
 - [前処理](https://rinoguchi.net/2020/02/nlp-preprocessing.html)
+- [原型へ](https://gotutiyan.hatenablog.com/entry/2020/09/26/192750)
