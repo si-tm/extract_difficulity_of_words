@@ -45,7 +45,7 @@ def tokenize(sentences: List[str]):
     words_list = []
     for s in sentences:
         lst = []
-        s = "The oxDNA model of Deoxyribonucleic acid has been applied widely to systems in biology."
+        # s = "The oxDNA model of Deoxyribonucleic acid has been applied widely to systems in biology."
         doc = nlp(s)
         for d in doc:
             token = d
@@ -57,10 +57,14 @@ def tokenize(sentences: List[str]):
 def eliminateStopWords(words_list: List[List[str]]):
     stopwords: List[str] = nltk.corpus.stopwords.words('english')
     exclude_words: List[str] = list(string.ascii_lowercase) + list(string.digits) + list(string.punctuation)
-    extract_words = stopwords + exclude_words
+    needless_words = stopwords + exclude_words
+
+    needless_words.append('—')
+    needless_words.append('\n')
+    needless_words.append('’s')
 
     normalized_words_list: List[List[str]] = list(
-        list(word for word in words if word not in extract_words) for words in words_list
+        list(word for word in words if word not in needless_words) for words in words_list
     )
 
     return normalized_words_list
